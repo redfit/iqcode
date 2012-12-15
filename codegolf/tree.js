@@ -1,7 +1,7 @@
-var k = new Array(4),w = 80,h = 40,l = 160,m = new Array(4);
+var k = [],w = 80,h = 40,l = 160,m = [];
 for (a=4;a--;) {
-  m[a] = new Array(h);
-  for (y = h;y --;)m[a][y] = new Array(w);
+  m[a] = [];
+  for (y = h;y --;)m[a][y] = [];
 }
 
 // ツリーを作成
@@ -36,7 +36,7 @@ for ( a = 0; a < 4; a ++) {
 
 // 文字列化
 for ( a = 0; a < 4; a ++) {
-   Y = new Array(h);
+   Y = [];
   for ( y = 0; y < h; y ++)Y[y] = m[a][y].join("");
   k[a] = Y.join("\n");
 }
