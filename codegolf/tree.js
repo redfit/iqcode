@@ -7,27 +7,26 @@ for (a=4;a--;) {
 }
 
 // ツリーを作成
-for (var a = 0; a < 4; a ++) {
-  for (var y = 0; y < h; y ++) {
-    for (var x = 0; x < w; x ++) {
+for (a = 4;a--;) {
+  for (y = h; y --;) {
+    for (x = w; x --;) {
       m[a][y][x] = "_";
 
-      var treeTop = Math.floor(y / 8) * 4;
-      var treeW = Math.floor(y / 8 + 1) * 8;
+       treeTop = Math.floor(y / 8) * 4;
+       treeW = Math.floor(y / 8 + 1) * 8;
 
-      if (Math.abs(x - w / 2) < (y - treeTop) % treeW) {
-        m[a][y][x] = "%";
-      }
+      if (Math.abs(x - w / 2) < (y - treeTop) % treeW)m[a][y][x] = "%";
+
     }
   }
 }
 
 // イルミネーションを作成
-for (var a = 0; a < 4; a ++) {
-  for (var i = 0; i < l; i ++) {
-    var r = (a + i) * i * 49999 + 59999 & 0xFFFF;
-    var x = 1 + r % (w - 2);
-    var y = 1 + r % (h - 2);
+for ( a = 0; a < 4; a ++) {
+  for ( i = 0; i < l; i ++) {
+     r = (a + i) * i * 49999 + 59999 & 0xFFFF;
+     x = 1 + r % (w - 2);
+     y = 1 + r % (h - 2);
 
     m[a][y][x] = "*";
     m[a][y][x - 1] = "-";
@@ -38,12 +37,12 @@ for (var a = 0; a < 4; a ++) {
 }
 
 // 文字列化
-for (var a = 0; a < 4; a ++) {
-  var arrayY = new Array(h);
-  for (var y = 0; y < h; y ++) {
-    arrayY[y] = m[a][y].join("");
+for ( a = 0; a < 4; a ++) {
+   Y = new Array(h);
+  for ( y = 0; y < h; y ++) {
+    Y[y] = m[a][y].join("");
   }
-  k[a] = arrayY.join("\n");
+  k[a] = Y.join("\n");
 }
 
 // 戻り値を戻して終了
