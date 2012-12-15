@@ -1,9 +1,7 @@
 var k = new Array(4),w = 80,h = 40,l = 160,m = new Array(4);
 for (a=4;a--;) {
   m[a] = new Array(h);
-  for (y = h;y --;) {
-    m[a][y] = new Array(w);
-  }
+  for (y = h;y --;)m[a][y] = new Array(w);
 }
 
 // ツリーを作成
@@ -12,10 +10,10 @@ for (a = 4;a--;) {
     for (x = w; x --;) {
       m[a][y][x] = "_";
 
-       treeTop = Math.floor(y / 8) * 4;
-       treeW = Math.floor(y / 8 + 1) * 8;
+       T = (y >> 3) * 4;
+       W = ((y >> 3) + 1) * 8;
 
-      if (Math.abs(x - w / 2) < (y - treeTop) % treeW)m[a][y][x] = "%";
+      if (Math.abs(x - w / 2) < (y - T) % W)m[a][y][x] = "%";
 
     }
   }
@@ -39,9 +37,7 @@ for ( a = 0; a < 4; a ++) {
 // 文字列化
 for ( a = 0; a < 4; a ++) {
    Y = new Array(h);
-  for ( y = 0; y < h; y ++) {
-    Y[y] = m[a][y].join("");
-  }
+  for ( y = 0; y < h; y ++)Y[y] = m[a][y].join("");
   k[a] = Y.join("\n");
 }
 
